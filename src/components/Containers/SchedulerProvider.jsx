@@ -6,8 +6,9 @@ export default class SchedulerProvider extends Component {
   state = {
     recurrence: 'monthly',
     dayOfWeek: {},
-    hours: '19',
-    minutes: '00',
+    hours: '0',
+    minutes: '0',
+    meridiem: 'pm',
   };
 
   dayOfWeekHandler = (event) => {
@@ -24,6 +25,10 @@ export default class SchedulerProvider extends Component {
     this.setState({ recurrence: value });
   };
 
+  meridiemSetter = (meridiem) => {
+    this.setState({ ...meridiem });
+  };
+
   timeSetter = (time) => {
     this.setState({ ...time });
   };
@@ -37,6 +42,7 @@ export default class SchedulerProvider extends Component {
             dayOfWeekHandler: this.dayOfWeekHandler,
             recurrenceHandler: this.recurrenceHandler,
             timeSetter: this.timeSetter,
+            meridiemSetter: this.meridiemSetter,
           },
         }}
       >
