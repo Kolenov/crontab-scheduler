@@ -1,0 +1,42 @@
+.time-picker {
+  display: flex;
+  align-items: center;
+}
+
+.time-picker__control {
+  text-align: center;
+  width: 52px;
+}
+
+.time-picker__meridiem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+  width: 52px;
+  height: 32px;
+}
+
+.time-picker__meridiem label {
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 4px 8px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #428bca;
+  color: #428bca;
+}
+
+.time-picker__meridiem input {
+  display: none;
+}
+
+.time-picker__divider {
+  width: 12px;
+  text-align: center;
+}

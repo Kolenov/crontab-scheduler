@@ -1,0 +1,5 @@
+.month-picker {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  font-size: 14px;
+}

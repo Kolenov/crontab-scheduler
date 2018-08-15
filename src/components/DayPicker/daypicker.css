@@ -1,0 +1,10 @@
+.daypicker {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: #fff;
+}
+
+.daypicker__cell {
+
+
+}

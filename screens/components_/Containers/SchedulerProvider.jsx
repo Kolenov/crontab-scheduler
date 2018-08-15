@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import SchedulerContext from './SchedulerContext';
 
 export default class SchedulerProvider extends Component {
+  static propTypes = {
+    children: PropTypes.element.isRequired,
+  };
+
   state = {
     recurrence: 'monthly',
     dayOfWeek: {},
@@ -11,7 +15,7 @@ export default class SchedulerProvider extends Component {
     meridiem: 'pm',
   };
 
-  dayOfWeekHandler = (event) => {
+  dayOfWeekSetter = (event) => {
     const { id, checked } = event.target;
     this.setState((prevState) => {
       const { dayOfWeek } = prevState;
@@ -34,19 +38,20 @@ export default class SchedulerProvider extends Component {
   };
 
   render() {
+    const { children } = this.props;
     return (
       <SchedulerContext.Provider
         value={{
-          state: { ...this.state },
+          store: { ...this.state },
           actions: {
-            dayOfWeekHandler: this.dayOfWeekHandler,
+            dayOfWeekSetter: this.dayOfWeekSetter,
             recurrenceHandler: this.recurrenceHandler,
             timeSetter: this.timeSetter,
             meridiemSetter: this.meridiemSetter,
           },
         }}
       >
-        {this.props.children}
+        {children}
       </SchedulerContext.Provider>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const Day = (props) => {
+const Time = (props) => {
   const {
     id, name, label, checked, onChange,
   } = props;
@@ -10,7 +10,7 @@ const Day = (props) => {
     <Fragment>
       <input
         id={id}
-        type="checkbox"
+        type="text"
         style={{ display: 'none' }}
         onChange={onChange}
         name={name}
@@ -23,11 +23,9 @@ const Day = (props) => {
   );
 };
 
-Day.propTypes = {
-  id: PropTypes.number.isRequired,
-  name: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  checked: PropTypes.bool.isRequired,
-  onChange: PropTypes.func.isRequired,
+
+Time.PropTypes = {
+
 };
-export default Day;
+
+export default Time;

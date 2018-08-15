@@ -6,9 +6,13 @@ const WeekDayConsumer = (Component) => {
   function Consumer() {
     return (
       <SchedulerContext.Consumer>
-        {context => (
-          <Component days={context.state.dayOfWeek} handler={context.actions.dayOfWeekHandler} />
-        )}
+        {(context) => {
+          const {
+            store: { dayOfWeek },
+            actions: { dayOfWeekSetter },
+          } = context;
+          return <Component days={{ ...dayOfWeek }} dayOfWeekSetter={dayOfWeekSetter} />;
+        }}
       </SchedulerContext.Consumer>
     );
   }

@@ -8,7 +8,7 @@ const TimeConsumer = (Component) => {
       <SchedulerContext.Consumer>
         {(context) => {
           const { timeSetter, meridiemSetter } = context.actions;
-          const { hours, minutes, meridiem } = context.state;
+          const { hours, minutes, meridiem } = context.store;
           return (
             <Component
               minutes={minutes}

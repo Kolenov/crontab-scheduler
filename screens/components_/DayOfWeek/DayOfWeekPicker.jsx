@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import whyDidYouUpdate from 'why-did-you-update';
 
@@ -9,14 +9,14 @@ if (process.env.NODE_ENV !== 'production') {
   whyDidYouUpdate(React);
 }
 
-class DayOfWeekPicker extends React.Component {
+class DayOfWeekPicker extends Component {
   static propTypes = {
     days: PropTypes.oneOfType([PropTypes.object]).isRequired,
-    handler: PropTypes.func.isRequired,
+    dayOfWeekSetter: PropTypes.func.isRequired,
   };
 
   render() {
-    const { handler, days } = this.props;
+    const { dayOfWeekSetter, days } = this.props;
     const NAMES = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'];
     const DAYS = NAMES.map((val, i) => (
       <Day
@@ -24,7 +24,7 @@ class DayOfWeekPicker extends React.Component {
         label={val}
         key={val}
         id={i}
-        onChange={handler}
+        onChange={dayOfWeekSetter}
         checked={Boolean(days[i])}
       />
     ));

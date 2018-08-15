@@ -6,9 +6,11 @@ const RecurrenceConsumer = (Component) => {
   function Consumer() {
     return (
       <SchedulerContext.Consumer>
-        {context => (
-          <Component value={context.state.recurrence} handler={context.actions.recurrenceHandler} />
-        )}
+        {(context) => {
+          const { recurrence } = context.store;
+          const { recurrenceHandler } = context.actions;
+          return <Component value={recurrence} handler={recurrenceHandler} />;
+        }}
       </SchedulerContext.Consumer>
     );
   }

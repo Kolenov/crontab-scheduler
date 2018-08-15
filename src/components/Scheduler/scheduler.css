@@ -1,0 +1,29 @@
+.scheduler {
+  min-width: 300px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.scheduler__recurrence {
+  margin-bottom: 16px;
+}
+
+.scheduler__datepicker {
+  margin-bottom: 16px;
+}
+
+.scheduler__datepicker .form-control {
+  width: 160px;
+}
+
+.scheduler__timepicker {
+  margin-bottom: 16px;
+}
+
+.scheduler__weekdays {
+  margin-bottom: 16px;
+}
+
+.scheduler__monthpicker {
+  margin-bottom: 16px;
+}

@@ -1,42 +1,30 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-import whyDidYouUpdate from 'why-did-you-update';
-import RecurrenceConsumer from '../Containers/RecurrenceConsumer';
+const Recurrence = (props) => {
+  const { handler, value, className } = props;
 
-if (process.env.NODE_ENV !== 'production') {
-  whyDidYouUpdate(React);
-}
-
-class Recurrence extends React.PureComponent {
-  static propTypes = {
-    value: PropTypes.string.isRequired,
-    handler: PropTypes.func.isRequired,
-  };
-
-  render() {
-    const { handler, value } = this.props;
-
-    return (
-      <select value={value} onChange={handler} name="recurrence">
-        <option value="once">
-          Once
+  return (
+    <div className={classNames('recurrence', className)}>
+      <select value={value} onChange={handler} name="recurrence" className="form-control">
+        <option value="1">
+        Once
         </option>
-        <option value="daily">
-          Every Day
+        <option value="2">
+        Every Day
         </option>
-        <option value="weekly">
-          Every Week
+        <option value="3">
+        Every Week
         </option>
-        <option value="monthly">
-          Every Month
+        <option value="4">
+        Every Month
         </option>
-        <option value="yearly">
-          Every Year
+        <option value="5">
+        Every Year
         </option>
       </select>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default RecurrenceConsumer(Recurrence);
+export default Recurrence;
