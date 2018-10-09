@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 
 import Cell from '../Shared/Cell/Cell';
-import './daypicker.css';
 
 const DayPicker = (props) => {
   const { days, handler, className } = props;
@@ -13,7 +12,7 @@ const DayPicker = (props) => {
       <Cell
         key={`day${index}`}
         data-day={index}
-        className={classNames('daypicker__cell', days.has(`${index}`) ? 'is-active' : '')}
+        className={days.has(`${index}`) ? 'is-active' : ''}
         onClick={handler}
       >
         {index}
@@ -21,11 +20,7 @@ const DayPicker = (props) => {
     );
   }
 
-  return (
-    <div className={classNames('daypicker', className)}>
-      {MONTHS}
-    </div>
-  );
+  return <div className={classNames('daypicker', className)}>{MONTHS}</div>;
 };
 
 export default DayPicker;

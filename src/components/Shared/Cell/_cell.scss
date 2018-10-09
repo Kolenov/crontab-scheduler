@@ -1,0 +1,25 @@
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  outline: 1px solid #fff;
+  background-color: #fff;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background-color: #eee;
+  }
+
+  &.is-active {
+    background-color: #428bca;
+    color: #fff;
+
+    &:hover {
+      outline: 1px solid #fff;
+      background-color: #327bba;
+      color: #fff;
+    }
+  }
+}

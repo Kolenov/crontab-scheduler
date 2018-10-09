@@ -1,8 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './time-picker.css';
-
 const TimePicker = (props) => {
   const {
     hours, minutes, meridiem, timeSetter, meridiemSetter, className,

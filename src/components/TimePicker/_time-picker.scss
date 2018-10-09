@@ -1,0 +1,46 @@
+.time-picker {
+  display: flex;
+  align-items: center;
+
+  &__control {
+    width: 52px;
+    text-align: center;
+  }
+
+  &__meridiem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 32px;
+    margin-left: 12px;
+
+    input {
+      display: none;
+    }
+
+    label {
+      display: flex;
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 4px 8px;
+      border: 2px solid currentColor;
+      border-radius: 5px;
+      color: #428bca;
+      text-transform: uppercase;
+      cursor: pointer;
+
+      &:hover {
+        color: #327bba;
+      }
+    }
+  }
+
+  &__divider {
+    width: 12px;
+    text-align: center;
+  }
+}

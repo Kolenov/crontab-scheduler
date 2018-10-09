@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 
 import DateTime from 'react-datetime';
-import 'react-datetime/css/react-datetime.css';
 import moment from 'moment';
 import 'moment/locale/en-au';
 
@@ -11,38 +10,19 @@ import TimePicker from '../TimePicker';
 import MonthPicker from '../MonthPicker';
 import DayPicker from '../DayPicker';
 
-import './scheduler.css';
-import '../Shared/form-control.css';
-
 moment.locale('en');
 const dateFormat = 'MM/DD/YYYY';
 
 class Scheduler extends React.Component {
   state = {
     recurrence: '1',
-    dayOfWeek: new Set(),
     hours: 0,
     minutes: 0,
     meridiem: 'pm',
     startDate: moment(),
+    dayOfWeek: new Set(),
     dayOfMonth: new Set(),
     months: new Set(),
-  };
-
-  dayOfWeekSetter = (event) => {
-    const {
-      dataset: { day },
-    } = event.target;
-
-    this.setState((prevState) => {
-      const { dayOfWeek } = prevState;
-      if (dayOfWeek.has(day)) {
-        dayOfWeek.delete(day);
-      } else {
-        dayOfWeek.add(day);
-      }
-      return { dayOfWeek };
-    });
   };
 
   recurrenceSeter = (event) => {
@@ -62,8 +42,25 @@ class Scheduler extends React.Component {
     this.setState({ [id]: value });
   };
 
-  dateSetter = (val) => {
-    this.setState({ startDate: val });
+  dateSetter = (value) => {
+    this.setState({ startDate: value });
+  };
+
+  dayOfWeekSetter = (event) => {
+    const {
+      dataset: { day },
+    } = event.target;
+
+    this.setState((prevState) => {
+      const dayOfWeek = new Set(...prevState.dayOfWeek);
+
+      if (dayOfWeek.has(day)) {
+        dayOfWeek.delete(day);
+      } else {
+        dayOfWeek.add(day);
+      }
+      return { dayOfWeek };
+    });
   };
 
   monthSetter = (event) => {
@@ -72,7 +69,7 @@ class Scheduler extends React.Component {
     } = event.target;
 
     this.setState((prevState) => {
-      const { months } = prevState;
+      const months = new Set(...prevState.months);
       if (months.has(month)) {
         months.delete(month);
       } else {
@@ -88,7 +85,7 @@ class Scheduler extends React.Component {
     } = event.target;
 
     this.setState((prevState) => {
-      const { dayOfMonth } = prevState;
+      const dayOfMonth = new Set(...prevState.dayOfMonth);
       if (dayOfMonth.has(day)) {
         dayOfMonth.delete(day);
       } else {
@@ -112,15 +109,11 @@ class Scheduler extends React.Component {
 
     return (
       <div className="scheduler">
-        <Recurrence
-          className="scheduler__recurrence"
-          value={recurrence}
-          handler={this.recurrenceSeter}
-        />
+        <Recurrence className="scheduler__item" value={recurrence} handler={this.recurrenceSeter} />
 
         {recurrence > 2 && (
           <WeekdaysPicker
-            className="scheduler__weekdays"
+            className="scheduler__item"
             days={dayOfWeek}
             handler={this.dayOfWeekSetter}
           />
@@ -129,7 +122,7 @@ class Scheduler extends React.Component {
         {recurrence > 1 && (
           <Fragment>
             <TimePicker
-              className="scheduler__timepicker"
+              className="scheduler__item"
               hours={hours}
               minutes={minutes}
               meridiem={meridiem}
@@ -138,7 +131,7 @@ class Scheduler extends React.Component {
             />
 
             <DateTime
-              className="scheduler__datepicker"
+              className="scheduler__item"
               value={moment(startDate, dateFormat)}
               dateFormat={dateFormat}
               timeFormat={false}
@@ -148,15 +141,11 @@ class Scheduler extends React.Component {
         )}
 
         {recurrence > 4 && (
-          <MonthPicker
-            className="scheduler__monthpicker"
-            months={months}
-            handler={this.monthSetter}
-          />
+          <MonthPicker className="scheduler__item" months={months} handler={this.monthSetter} />
         )}
 
         {recurrence > 3 && (
-          <DayPicker className="scheduler__daypicker" days={dayOfMonth} handler={this.daySetter} />
+          <DayPicker className="scheduler__item" days={dayOfMonth} handler={this.daySetter} />
         )}
       </div>
     );

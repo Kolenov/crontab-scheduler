@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8fcfe;
+  color: #3f3f3f;
+  font-family: sans-serif;
+}
+
+@import '~react-datetime/css/react-datetime.css';
+@import './components/Shared/form-control';
+@import './components/Shared/Cell/cell';
+@import './components/DayPicker/daypicker';
+@import './components/MonthPicker/month-picker';
+@import './components/Scheduler/scheduler';
+@import './components/WeekdaysPicker/weekdays';
+@import './components/TimePicker/time-picker';
+@import './components/Scheduler/scheduler';

@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 
 import Cell from '../Shared/Cell/Cell';
-import './weekdays.css';
 
 const WeekdaysPicker = (props) => {
   const NAMES = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'];
