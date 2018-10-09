@@ -52,7 +52,7 @@ class Scheduler extends React.Component {
     } = event.target;
 
     this.setState((prevState) => {
-      const dayOfWeek = new Set(...prevState.dayOfWeek);
+      const dayOfWeek = new Set([...prevState.dayOfWeek]);
 
       if (dayOfWeek.has(day)) {
         dayOfWeek.delete(day);
@@ -69,7 +69,7 @@ class Scheduler extends React.Component {
     } = event.target;
 
     this.setState((prevState) => {
-      const months = new Set(...prevState.months);
+      const months = new Set([...prevState.months]);
       if (months.has(month)) {
         months.delete(month);
       } else {
@@ -85,7 +85,7 @@ class Scheduler extends React.Component {
     } = event.target;
 
     this.setState((prevState) => {
-      const dayOfMonth = new Set(...prevState.dayOfMonth);
+      const dayOfMonth = new Set([...prevState.dayOfMonth]);
       if (dayOfMonth.has(day)) {
         dayOfMonth.delete(day);
       } else {
