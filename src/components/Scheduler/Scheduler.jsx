@@ -3,12 +3,15 @@ import React, { Fragment } from 'react';
 import DateTime from 'react-datetime';
 import moment from 'moment';
 import 'moment/locale/en-au';
+import { COMPONENTS, COMPONENT_STATE } from './config';
 
 import WeekdaysPicker from '../WeekdaysPicker';
 import Recurrence from '../Recurrence';
 import TimePicker from '../TimePicker';
 import MonthPicker from '../MonthPicker';
 import DayPicker from '../DayPicker';
+
+const hasSate = (state, component) => Boolean(COMPONENT_STATE[state] & COMPONENTS[component]);
 
 moment.locale('en');
 const dateFormat = 'MM/DD/YYYY';
@@ -111,7 +114,7 @@ class Scheduler extends React.Component {
       <div className="scheduler">
         <Recurrence className="scheduler__item" value={recurrence} handler={this.recurrenceSeter} />
 
-        {recurrence > 2 && (
+        {hasSate(recurrence, 'weekDays') && (
           <WeekdaysPicker
             className="scheduler__item"
             days={dayOfWeek}
@@ -119,7 +122,15 @@ class Scheduler extends React.Component {
           />
         )}
 
-        {recurrence > 1 && (
+        {hasSate(recurrence, 'months') && (
+          <MonthPicker className="scheduler__item" months={months} handler={this.monthSetter} />
+        )}
+
+        {hasSate(recurrence, 'monthDays') && (
+          <DayPicker className="scheduler__item" days={dayOfMonth} handler={this.daySetter} />
+        )}
+
+        {hasSate(recurrence, 'dateTime') && (
           <Fragment>
             <TimePicker
               className="scheduler__item"
@@ -129,23 +140,16 @@ class Scheduler extends React.Component {
               timeSetter={this.timeSetter}
               meridiemSetter={this.meridiemSetter}
             />
-
-            <DateTime
-              className="scheduler__item"
-              value={moment(startDate, dateFormat)}
-              dateFormat={dateFormat}
-              timeFormat={false}
-              onChange={this.dateSetter}
-            />
+            <div className="scheduler__item">
+              <span>Start From Date:</span>
+              <DateTime
+                value={moment(startDate, dateFormat)}
+                dateFormat={dateFormat}
+                timeFormat={false}
+                onChange={this.dateSetter}
+              />
+            </div>
           </Fragment>
-        )}
-
-        {recurrence > 4 && (
-          <MonthPicker className="scheduler__item" months={months} handler={this.monthSetter} />
-        )}
-
-        {recurrence > 3 && (
-          <DayPicker className="scheduler__item" days={dayOfMonth} handler={this.daySetter} />
         )}
       </div>
     );

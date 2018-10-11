@@ -6,22 +6,19 @@ const Recurrence = (props) => {
 
   return (
     <div className={classNames('recurrence', className)}>
-      <select value={value} onChange={handler} name="recurrence" className="form-control">
-        <option value="1">
-        Once
-        </option>
-        <option value="2">
-        Every Day
-        </option>
-        <option value="3">
-        Every Week
-        </option>
-        <option value="4">
-        Every Month
-        </option>
-        <option value="5">
-        Every Year
-        </option>
+      <span>Recurrence pattern:</span>
+      <select
+        value={value}
+        onChange={handler}
+        name="recurrence"
+        id="recurrence"
+        className="form-control"
+      >
+        <option value="once">Once</option>
+        <option value="everyDay">Every Day</option>
+        <option value="everyWeek">Every Week</option>
+        <option value="everyMonth">Every Month</option>
+        <option value="everyYear">Every Year</option>
       </select>
     </div>
   );
