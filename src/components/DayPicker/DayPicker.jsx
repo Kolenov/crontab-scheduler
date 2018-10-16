@@ -11,9 +11,9 @@ const DayPicker = (props) => {
     MONTHS.push(
       <Cell
         key={`day${index}`}
-        data-day={index}
-        className={days.has(`${index}`) ? 'is-active' : ''}
-        onClick={handler}
+        value={index}
+        className={days.includes(index) ? 'is-active' : ''}
+        onClickHandler={handler}
       >
         {index}
       </Cell>,

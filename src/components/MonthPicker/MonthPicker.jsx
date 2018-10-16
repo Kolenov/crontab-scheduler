@@ -5,14 +5,17 @@ import Cell from '../Shared/Cell';
 import { MONTH_NAMES } from '../constants';
 
 const MonthPicker = (props) => {
-  const { months, handler, className } = props;
+  const {
+    id, months, handler, className,
+  } = props;
 
   const MONTHS = MONTH_NAMES.map((month, index) => (
     <Cell
+      id={id}
       key={month}
-      data-month={index + 1}
-      className={months.has(`${index + 1}`) ? 'is-active' : ''}
-      onClick={handler}
+      value={index + 1}
+      className={months.includes(index + 1) ? 'is-active' : ''}
+      onClickHandler={handler}
     >
       {month}
     </Cell>

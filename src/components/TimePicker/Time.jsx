@@ -16,16 +16,9 @@ const Time = (props) => {
         name={name}
         checked={checked}
       />
-      <label htmlFor={id}>
-        {label}
-      </label>
+      <label htmlFor={id}>{label}</label>
     </Fragment>
   );
-};
-
-
-Time.PropTypes = {
-
 };
 
 export default Time;

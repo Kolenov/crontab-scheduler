@@ -3,27 +3,25 @@ import classNames from 'classnames';
 
 const TimePicker = (props) => {
   const {
-    hours, minutes, meridiem, timeSetter, meridiemSetter, className,
+    id, hours, minutes, meridiem, timeHandler, meridiemHandler, className,
   } = props;
 
   return (
-    <div className={classNames('time-picker', className)}>
+    <div id={id} className={classNames('time-picker', className)}>
       <input
         type="text"
         id="hours"
         value={hours}
-        onChange={timeSetter}
+        onChange={timeHandler}
         autoComplete="off"
         className={classNames('time-picker__control', 'form-control')}
       />
-      <span className="time-picker__divider">
-        {':'}
-      </span>
+      <span className="time-picker__divider">:</span>
       <input
         type="text"
         id="minutes"
         value={minutes}
-        onChange={timeSetter}
+        onChange={timeHandler}
         autoComplete="off"
         className={classNames('time-picker__control', 'form-control')}
       />
@@ -32,11 +30,9 @@ const TimePicker = (props) => {
           type="checkbox"
           id="meridiem"
           checked={meridiem === 'pm'}
-          onChange={meridiemSetter}
+          onChange={meridiemHandler}
         />
-        <label htmlFor="meridiem">
-          {meridiem}
-        </label>
+        <label htmlFor="meridiem">{meridiem}</label>
       </div>
     </div>
   );

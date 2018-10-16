@@ -1,0 +1,32 @@
+.scheduler {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  max-width: 600px;
+  margin: 0 auto;
+
+  &__item {
+    margin-bottom: 16px;
+
+    .form-field__label {
+      flex-basis: 0%;
+      flex-grow: 0;
+      flex-shrink: 0;
+      min-width: 200px;
+      text-align: left;
+    }
+
+    .form-field__control {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .daypicker {
+      flex: 0;
+    }
+
+    .month-picker {
+      flex: 0;
+    }
+  }
+}

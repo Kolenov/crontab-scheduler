@@ -1,5 +1,6 @@
 .daypicker {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  flex-basis: 0%;
   background-color: #fff;
 }

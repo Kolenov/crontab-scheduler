@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Scheduler from './components/Scheduler/Scheduler';
+import Scheduler from './containers/Scheduler';
 
 class App extends Component {
   render() {

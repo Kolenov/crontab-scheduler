@@ -1,0 +1,39 @@
+.form-field {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+
+  &__control {
+    grid-area: control;
+    order: 0;
+    width: 100%;
+  }
+
+  &__label {
+    grid-area: label;
+    flex: 0 0 auto;
+    order: -1;
+    margin-right: 1rem;
+    line-height: 2rem;
+  }
+
+  &.right {
+    .form-field__label {
+      order: 1;
+      margin-left: auto;
+      padding-right: .5rem;
+    }
+  }
+
+  &.top {
+    align-items: flex-start;
+  }
+
+  &.stacked {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    order: -1;
+    margin: .5em 0;
+  }
+}

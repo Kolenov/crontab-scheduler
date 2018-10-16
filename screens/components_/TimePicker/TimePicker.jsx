@@ -13,8 +13,8 @@ class TimePicker extends Component {
     hours: PropTypes.string.isRequired,
     minutes: PropTypes.string.isRequired,
     meridiem: PropTypes.string.isRequired,
-    meridiemSetter: PropTypes.func.isRequired,
-    timeSetter: PropTypes.func.isRequired,
+    meridiemHandler: PropTypes.func.isRequired,
+    timeHandler: PropTypes.func.isRequired,
   };
 
   state = {
@@ -36,16 +36,16 @@ class TimePicker extends Component {
     const { checked } = event.target;
     const value = checked ? 'pm' : 'am';
     this.setState({ meridiem: value }, () => {
-      const { meridiemSetter } = this.props;
-      meridiemSetter({ meridiem: value });
+      const { meridiemHandler } = this.props;
+      meridiemHandler({ meridiem: value });
     });
   };
 
   timeHandler = (event) => {
     const { id: name, value } = event.target;
     this.setState({ [name]: value }, () => {
-      const { timeSetter } = this.props;
-      timeSetter({ [name]: value });
+      const { timeHandler } = this.props;
+      timeHandler({ [name]: value });
     });
   };
 

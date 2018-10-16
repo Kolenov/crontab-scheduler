@@ -7,15 +7,15 @@ const TimeConsumer = (Component) => {
     return (
       <SchedulerContext.Consumer>
         {(context) => {
-          const { timeSetter, meridiemSetter } = context.actions;
+          const { timeHandler, meridiemHandler } = context.actions;
           const { hours, minutes, meridiem } = context.store;
           return (
             <Component
               minutes={minutes}
               hours={hours}
               meridiem={meridiem}
-              timeSetter={timeSetter}
-              meridiemSetter={meridiemSetter}
+              timeHandler={timeHandler}
+              meridiemHandler={meridiemHandler}
             />
           );
         }}

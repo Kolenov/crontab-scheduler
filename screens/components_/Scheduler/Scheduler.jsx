@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SchedulerProvider from '../Containers/SchedulerProvider';
-import DayPicker from '../DayOfWeek';
+import DayPicker from '../weekDays';
 import Recurrence from '../Recurrence';
 import TimePicker from '../TimePicker';
 

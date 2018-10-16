@@ -8,10 +8,10 @@ const WeekDayConsumer = (Component) => {
       <SchedulerContext.Consumer>
         {(context) => {
           const {
-            store: { dayOfWeek },
-            actions: { dayOfWeekSetter },
+            store: { weekDays },
+            actions: { weekDaysHandler },
           } = context;
-          return <Component days={{ ...dayOfWeek }} dayOfWeekSetter={dayOfWeekSetter} />;
+          return <Component days={{ ...weekDays }} weekDaysHandler={weekDaysHandler} />;
         }}
       </SchedulerContext.Consumer>
     );

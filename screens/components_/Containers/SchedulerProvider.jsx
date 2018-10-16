@@ -9,18 +9,18 @@ export default class SchedulerProvider extends Component {
 
   state = {
     recurrence: 'monthly',
-    dayOfWeek: {},
+    weekDays: {},
     hours: '0',
     minutes: '0',
     meridiem: 'pm',
   };
 
-  dayOfWeekSetter = (event) => {
+  weekDaysHandler = (event) => {
     const { id, checked } = event.target;
     this.setState((prevState) => {
-      const { dayOfWeek } = prevState;
-      dayOfWeek[id] = checked;
-      return { dayOfWeek };
+      const { weekDays } = prevState;
+      weekDays[id] = checked;
+      return { weekDays };
     });
   };
 
@@ -29,11 +29,11 @@ export default class SchedulerProvider extends Component {
     this.setState({ recurrence: value });
   };
 
-  meridiemSetter = (meridiem) => {
+  meridiemHandler = (meridiem) => {
     this.setState({ ...meridiem });
   };
 
-  timeSetter = (time) => {
+  timeHandler = (time) => {
     this.setState({ ...time });
   };
 
@@ -44,10 +44,10 @@ export default class SchedulerProvider extends Component {
         value={{
           store: { ...this.state },
           actions: {
-            dayOfWeekSetter: this.dayOfWeekSetter,
+            weekDaysHandler: this.weekDaysHandler,
             recurrenceHandler: this.recurrenceHandler,
-            timeSetter: this.timeSetter,
-            meridiemSetter: this.meridiemSetter,
+            timeHandler: this.timeHandler,
+            meridiemHandler: this.meridiemHandler,
           },
         }}
       >
