@@ -4,12 +4,15 @@ import classNames from 'classnames';
 import Cell from '../Shared/Cell/Cell';
 
 const DayPicker = (props) => {
-  const { days, handler, className } = props;
+  const {
+    name, id, days, handler, className,
+  } = props;
   const MONTHS = [];
 
   for (let index = 1; index <= 31; index += 1) {
     MONTHS.push(
       <Cell
+        name={name}
         key={`day${index}`}
         value={index}
         className={days.includes(index) ? 'is-active' : ''}
@@ -20,7 +23,11 @@ const DayPicker = (props) => {
     );
   }
 
-  return <div className={classNames('daypicker', className)}>{MONTHS}</div>;
+  return (
+    <div id={id} className={classNames('daypicker', className)}>
+      {MONTHS}
+    </div>
+  );
 };
 
 export default DayPicker;

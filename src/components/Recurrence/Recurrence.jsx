@@ -3,11 +3,12 @@ import classNames from 'classnames';
 
 const Recurrence = (props) => {
   const {
-    handler, value, className,
+    id, handler, value, className,
   } = props;
 
   return (
     <select
+      id={id}
       value={value}
       onChange={handler}
       name="recurrence"

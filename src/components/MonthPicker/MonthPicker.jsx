@@ -6,11 +6,12 @@ import { MONTH_NAMES } from '../constants';
 
 const MonthPicker = (props) => {
   const {
-    id, months, handler, className,
+    name, id, months, handler, className,
   } = props;
 
   const MONTHS = MONTH_NAMES.map((month, index) => (
     <Cell
+      name={name}
       id={id}
       key={month}
       value={index + 1}

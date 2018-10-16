@@ -41,24 +41,23 @@ class Scheduler extends React.Component {
   };
 
   timeHandler = (e) => {
-    const { value, id } = e.target;
-    this.setState({ [id]: addLeadingZerro(value) });
+    const { value, name } = e.target;
+    this.setState({ [name]: addLeadingZerro(value) });
   };
 
   dateHandler = (value) => {
     this.setState({ startDate: value });
   };
 
-  cellClickhandler = (statePart, value) => {
-    const newValue = {};
+  cellClickhandler = (value, name) => {
     this.setState((prevState) => {
-      const oldValue = [...prevState[statePart]];
+      const oldValue = [...prevState[name]];
 
-      newValue[statePart] = oldValue.includes(value)
+      const newValue = oldValue.includes(value)
         ? oldValue.filter(el => el !== value)
         : [...oldValue, value];
 
-      return { ...newValue };
+      return { [name]: [...newValue] };
     });
   };
 
@@ -94,10 +93,11 @@ class Scheduler extends React.Component {
               On Days of the Week *:
             </Label>
             <WeekdaysPicker
+              name="weekDays"
               id="weekdays"
               className="form-field__control"
               days={weekDays}
-              handler={this.cellClickhandler.bind(null, 'weekDays')}
+              handler={this.cellClickhandler}
             />
           </div>
         )}
@@ -108,10 +108,11 @@ class Scheduler extends React.Component {
               On Months *:
             </Label>
             <MonthPicker
+              name="months"
               id="month"
               className="form-field__control"
               months={months}
-              handler={this.cellClickhandler.bind(null, 'months')}
+              handler={this.cellClickhandler}
             />
           </div>
         )}
@@ -122,10 +123,11 @@ class Scheduler extends React.Component {
               On Days *:
             </Label>
             <DayPicker
+              name="monthDays"
               id="mothdays"
               className="form-field__control"
               days={monthDays}
-              handler={this.cellClickhandler.bind(null, 'monthDays')}
+              handler={this.cellClickhandler}
             />
           </div>
         )}

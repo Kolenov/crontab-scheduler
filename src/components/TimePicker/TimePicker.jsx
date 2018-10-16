@@ -10,7 +10,7 @@ const TimePicker = (props) => {
     <div id={id} className={classNames('time-picker', className)}>
       <input
         type="text"
-        id="hours"
+        name="hours"
         value={hours}
         onChange={timeHandler}
         autoComplete="off"
@@ -19,7 +19,7 @@ const TimePicker = (props) => {
       <span className="time-picker__divider">:</span>
       <input
         type="text"
-        id="minutes"
+        name="minutes"
         value={minutes}
         onChange={timeHandler}
         autoComplete="off"
