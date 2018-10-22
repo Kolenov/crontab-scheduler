@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Cell from '../Shared/Cell';
@@ -23,6 +24,19 @@ const MonthPicker = (props) => {
   ));
 
   return <div className={classNames('month-picker', className)}>{MONTHS}</div>;
+};
+
+MonthPicker.propTypes = {
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  months: PropTypes.oneOfType([PropTypes.array]),
+  handler: PropTypes.func.isRequired,
+  className: PropTypes.string,
+};
+
+MonthPicker.defaultProps = {
+  months: [],
+  className: '',
 };
 
 export default MonthPicker;

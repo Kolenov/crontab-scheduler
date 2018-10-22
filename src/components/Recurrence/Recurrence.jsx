@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 const Recurrence = (props) => {
@@ -21,6 +22,18 @@ const Recurrence = (props) => {
       <option value="everyYear">Every Year</option>
     </select>
   );
+};
+
+Recurrence.propTypes = {
+  id: PropTypes.string.isRequired,
+  handler: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  className: PropTypes.string,
+};
+
+Recurrence.defaultProps = {
+  value: '',
+  className: '',
 };
 
 export default Recurrence;
