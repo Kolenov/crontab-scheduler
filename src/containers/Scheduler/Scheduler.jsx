@@ -51,7 +51,7 @@ class Scheduler extends React.Component {
 
   cellClickhandler = (value, name) => {
     this.setState((prevState) => {
-      const oldValue = [...prevState[name]];
+      const oldValue = prevState[name];
 
       const newValue = oldValue.includes(value)
         ? oldValue.filter(el => el !== value)
@@ -146,6 +146,7 @@ class Scheduler extends React.Component {
                 meridiem={meridiem}
                 timeHandler={this.timeHandler}
                 meridiemHandler={this.meridiemHandler}
+
               />
             </div>
             <div className="form-field scheduler__item">
@@ -159,6 +160,7 @@ class Scheduler extends React.Component {
                 timeFormat={false}
                 onChange={this.dateHandler}
                 className="form-field__control"
+
               />
             </div>
           </Fragment>
