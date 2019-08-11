@@ -1,1 +1,2 @@
-export { default } from './utils'
+export { hasSate, addLeadingZerro } from './utils';
+export { childrenPropType, numberOrStringPropType } from './propTypes';
