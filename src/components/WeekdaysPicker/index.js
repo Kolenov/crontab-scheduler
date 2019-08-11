@@ -1,1 +1,1 @@
-export { addLeadingZerro, hasSate } from './WeekdaysPicker'
+export default from './WeekdaysPicker';
