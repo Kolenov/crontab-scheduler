@@ -23,7 +23,7 @@
   ],
   "rules": {
     "indent": [2, 2],
-    "max-len": [2, { "code": 100 }],
+    "max-len": [2, { "code": 120 }],
     "quotes": [2, "single", { "allowTemplateLiterals": true }],
     "linebreak-style": [2, "unix"],
     "semi": [2, "always"],
@@ -48,6 +48,7 @@
             "allowChildren": true
         }],
    "react/prefer-stateless-function": 0,
-   "react/prop-types": 1
+   "react/prop-types": 1,
+   "react/jsx-filename-extension": 0
   }
 }
