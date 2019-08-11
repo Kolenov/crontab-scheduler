@@ -1,5 +1,6 @@
 .form-field {
   display: inline-flex;
+  box-sizing: border-box;
   align-items: center;
   vertical-align: middle;
 
@@ -17,11 +18,18 @@
     line-height: 2rem;
   }
 
-  &.right {
+  &__error {
+    margin-left: calc(200px + 1rem);
+    color: #c71585;
+    font-size: .875em;
+  }
+
+  @at-root .rtl &{
     .form-field__label {
       order: 1;
+      margin-right: 0;
       margin-left: auto;
-      padding-right: .5rem;
+      padding-right: 0;
     }
   }
 
@@ -29,9 +37,9 @@
     align-items: flex-start;
   }
 
-  &.stacked {
+  @at-root .stacked &{
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     align-items: flex-start;
     order: -1;
     margin: .5em 0;

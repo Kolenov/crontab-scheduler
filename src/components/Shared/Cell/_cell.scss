@@ -8,7 +8,8 @@
   cursor: pointer;
   user-select: none;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: #eee;
   }
 
@@ -16,10 +17,15 @@
     background-color: #428bca;
     color: #fff;
 
-    &:hover {
+    &:hover,
+    &:focus {
       outline: 1px solid #fff;
       background-color: #327bba;
       color: #fff;
     }
+  }
+
+  &.is-partial {
+    background-image: linear-gradient(to right bottom, rgba(255, 255, 255, .3) 0%, rgba(255, 255, 255, .3) 49%, rgba(0, 0, 0, 0) 51%, rgba(0, 0, 0, 0) 100%);
   }
 }
