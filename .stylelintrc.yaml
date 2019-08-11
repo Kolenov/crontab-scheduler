@@ -21,6 +21,8 @@ rules:
   # Double-quotes are our convention throughout our codebase within (S)CSS. They also reflect how
   # attribute strings are normally quoted within the DOM.
   string-quotes: single
+  block-opening-brace-space-before:
+    - always
 
   order/properties-alphabetical-order: null
   order/order:
@@ -130,7 +132,6 @@ rules:
     -
       except:
         - after-same-name
-        - inside-block
         - blockless-after-same-name-blockless
         - blockless-after-blockless
         - first-nested
