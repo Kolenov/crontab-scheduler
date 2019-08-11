@@ -1,1 +1,1 @@
-export { default } from './Recurrence'
+export { default } from './Recurrence';

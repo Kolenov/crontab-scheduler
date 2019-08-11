@@ -1,4 +1,4 @@
-export const DAY_NAMES = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU']
+export const DAY_NAMES = ['MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU'];
 export const MONTH_NAMES = [
   'JAN',
   'FEB',
@@ -11,8 +11,8 @@ export const MONTH_NAMES = [
   'SEP',
   'OCT',
   'NOV',
-  'DEC'
-]
+  'DEC',
+];
 export const KEY_CODE = {
   backspace: 8,
   tab: 9,
@@ -31,5 +31,5 @@ export const KEY_CODE = {
   leftarrow: 37,
   uparrow: 38,
   rightarrow: 39,
-  downarrow: 40
-}
+  downarrow: 40,
+};

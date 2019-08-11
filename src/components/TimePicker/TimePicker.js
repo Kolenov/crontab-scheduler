@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { KEY_CODE } from '../constants';
@@ -46,6 +47,21 @@ const TimePicker = (props) => {
       </div>
     </div>
   );
+};
+
+TimePicker.defaultProps = {
+  className: '',
+  meridiem: true,
+};
+
+TimePicker.propTypes = {
+  id: PropTypes.string.isRequired,
+  hours: PropTypes.number.isRequired,
+  minutes: PropTypes.number.isRequired,
+  meridiem: PropTypes.bool,
+  timeHandler: PropTypes.func.isRequired,
+  meridiemHandler: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
 
 export default TimePicker;

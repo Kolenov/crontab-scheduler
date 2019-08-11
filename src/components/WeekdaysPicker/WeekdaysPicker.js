@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import Cell from '../Shared/Cell/Cell';
@@ -22,6 +23,17 @@ const WeekdaysPicker = (props) => {
   ));
 
   return <div className={classNames('weekdays', className)}>{weekDays}</div>;
+};
+
+WeekdaysPicker.defaultProps = {
+  className: '',
+};
+
+WeekdaysPicker.propTypes = {
+  name: PropTypes.string.isRequired,
+  days: PropTypes.string.isRequired,
+  handler: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
 
 export default WeekdaysPicker;
